@@ -56,8 +56,50 @@
 
         <!-- Theme change button -->
         <i class="bx bx-moon change-theme" id="theme-button"></i>
+        <button type="button" class="music-button" id="music-button" title="Play ambient music" aria-label="Play ambient music">
+          <i class="bx bx-play"></i>
+        </button>
+        <div class="color-picker">
+          <button type="button" class="change-color" id="color-button" title="Choose accent color" aria-label="Choose accent color" aria-expanded="false">
+            <i class="bx bx-palette"></i>
+          </button>
+          <div class="color-options" id="color-options" aria-label="Recommended accent colors">
+            <button type="button" class="color-swatch" data-color="#c96b6b" style="--swatch-color: #c96b6b" aria-label="Soft coral accent"></button>
+            <button type="button" class="color-swatch" data-color="#6f8fcf" style="--swatch-color: #6f8fcf" aria-label="Soft blue accent"></button>
+            <button type="button" class="color-swatch" data-color="#5aa89d" style="--swatch-color: #5aa89d" aria-label="Soft teal accent"></button>
+            <button type="button" class="color-swatch" data-color="#c69a52" style="--swatch-color: #c69a52" aria-label="Soft amber accent"></button>
+            <button type="button" class="color-swatch" data-color="#c17a9f" style="--swatch-color: #c17a9f" aria-label="Dusty pink accent"></button>
+            <button type="button" class="color-swatch" data-color="#8d82b8" style="--swatch-color: #8d82b8" aria-label="Soft violet accent"></button>
+            <label class="custom-color">
+              <span>Custom</span>
+              <input type="color" id="custom-color" value="#c96b6b" aria-label="Choose custom accent color" />
+            </label>
+          </div>
+        </div>
       </nav>
     </header>
+
+    <aside class="music-info" aria-live="polite">
+      <i class="bx bx-music music-info__icon"></i>
+      <div class="music-info__details">
+        <span class="music-info__label">Now Playing</span>
+        <strong class="music-info__title">Portfolio Ambient</strong>
+        <span class="music-info__status" id="music-status">Paused</span>
+      </div>
+      <div class="music-visualizer" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <div class="music-controls">
+        <button type="button" id="music-previous" title="Previous track" aria-label="Previous track"><i class="bx bx-skip-previous"></i></button>
+        <button type="button" id="music-play" title="Play music" aria-label="Play music"><i class="bx bx-play"></i></button>
+        <button type="button" id="music-next" title="Next track" aria-label="Next track"><i class="bx bx-skip-next"></i></button>
+        <button type="button" id="music-stop" title="Stop music" aria-label="Stop music"><i class="bx bx-stop"></i></button>
+      </div>
+      <div class="music-divider"></div>
+      <div class="music-library" id="music-library" aria-label="Music playlist"></div>
+    </aside>
+    <label class="music-upload" title="Choose music files">
+      <i class="bx bx-folder-open"></i>
+      <input type="file" id="music-file-input" accept="audio/*" multiple />
+    </label>
 
     <!--=============== MAIN ===============-->
     <main class="main">
@@ -67,7 +109,7 @@
           <div class="home__data">
             <span class="home__greeting">Hello, I'm</span>
             <h1 class="home__name">Muhammad Adib Bowo Laksono</h1>
-            <h3 class="home__education">Fresh Graduate From Computer Engineering, Diponegoro University</h3>
+            <h3 class="home__education">Graduated from Computer Engineering, Diponegoro University<br />Currently working at the Directorate General of Customs and Excise</h3>
 
             <div class="home__buttons">
               <a download="" href="assets/pdf/CV_Muhammad Adib Bowo Laksono.pdf" class="button button--ghost"> Download My CV </a>
@@ -123,7 +165,7 @@
                 <span class="about__subtitle">1 Company</span>
               </div>
             </div>
-            <p class="about__description">I'm an Fresh graduate from Computer Engineering major. Experience in embedded IoT, electronics, and software. Interested in Electrical Engineering, also IT Support and Software Engineering.</p>
+            <p class="about__description">I work at the Directorate General of Customs and Excise, with advanced skills in Laravel, Python, and Artificial Intelligence (AI).</p>
 
             <a href="#contact" class="button">Contact Me</a>
           </div>
@@ -274,6 +316,22 @@
                   <div>
                     <h3 class="skills__name">Jaringan</h3>
                     <span class="skills__level">Network Management</span>
+                  </div>
+                </div>
+              </div>
+              <div class="skills_group">
+                <div class="skills__data">
+                  <i class="bx bxs-badge-check"></i>
+                  <div>
+                    <h3 class="skills__name">VPS</h3>
+                    <span class="skills__level">Virtual Private Server</span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <i class="bx bxs-badge-check"></i>
+                  <div>
+                    <h3 class="skills__name">DevOps</h3>
+                    <span class="skills__level">Deployment &amp; Automation</span>
                   </div>
                 </div>
               </div>
@@ -444,6 +502,12 @@
             >
             <a href="https://github.com/adibw99/undip-news" class="work__button"> GitHub <i class="bx bx-right-arrow-alt work__icon"></i> </a>
           </div>
+          <div class="work__card mix web">
+            <img src="assets/img/Project11.png" alt="Portal BC Kuala Namu website" class="work__img" />
+            <h3 class="work__title">Portal BC Kuala Namu</h3>
+            <span class="work__subtitle">Website portal informasi Bea Cukai Kuala Namu</span>
+            <a href="https://portal.bckno.site" target="_blank" rel="noopener noreferrer" class="work__button"> Website <i class="bx bx-right-arrow-alt work__icon"></i> </a>
+          </div>
           <div class="work__card mix bot">
             <img src="assets/img/Project5.png" alt="" class="work__img" />
             <h3 class="work__title">Bot Auto Send Message in Discord</h3>
@@ -535,6 +599,13 @@
                 >
 
                 <a href="https://telegram.me/adibw99" target="_blank" class="contact__button"> Write me <i class="bx bx-right-arrow-alt contact__button-icon"></i> </a>
+              </div>
+              <div class="contact__card">
+                <i class="bx bxl-linkedin-square contact__card-icon"></i>
+                <h3 class="contact__card-title">LinkedIn</h3>
+                <span class="contact__card-data">adibalmusawa</span>
+
+                <a href="https://www.linkedin.com/in/adibalmusawa/" target="_blank" rel="noopener noreferrer" class="contact__button"> View profile <i class="bx bx-right-arrow-alt contact__button-icon"></i> </a>
               </div>
             </div>
           </div>

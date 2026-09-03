@@ -170,7 +170,6 @@ const musicButton = document.getElementById('music-button')
 const musicStatus = document.getElementById('music-status')
 const musicTitle = document.querySelector('.music-info__title')
 const musicInfo = document.querySelector('.music-info')
-const musicFileInput = document.getElementById('music-file-input')
 const musicLibrary = document.getElementById('music-library')
 const musicPlay = document.getElementById('music-play')
 const musicPrevious = document.getElementById('music-previous')
@@ -258,18 +257,6 @@ const loadMusicManifest = async () => {
 
 loadMusicManifest().catch(() => {
     musicStatus.textContent = 'Add music'
-})
-
-musicFileInput.addEventListener('change', () => {
-    playlist.filter((track) => track.isLocal).forEach((track) => URL.revokeObjectURL(track.url))
-    const uploadedTracks = Array.from(musicFileInput.files).map((file) => ({
-        name: file.name,
-        url: URL.createObjectURL(file),
-        isLocal: true
-    }))
-    playlist = [...bundledTracks, ...uploadedTracks]
-    renderPlaylist()
-    if (playlist.length > 0) selectTrack(0)
 })
 
 musicButton.addEventListener('click', () => {

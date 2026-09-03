@@ -349,25 +349,6 @@ img {
   background-color: hsla(var(--first-hue), var(--sat), var(--lig), 0.14);
 }
 
-.music-upload {
-  position: fixed;
-  bottom: 2rem;
-  left: 1rem;
-  z-index: var(--z-tooltip);
-  display: grid;
-  place-items: center;
-  color: var(--first-color);
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.music-upload input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-}
-
 .music-library {
   grid-column: 1 / -1;
   display: none;
@@ -1381,10 +1362,6 @@ body.light-theme {
     width: min(250px, calc(100vw - 1.5rem));
   }
 
-  .music-upload {
-    left: 0.75rem;
-    bottom: 1.25rem;
-  }
 }
 
 @media screen and (max-width: 420px) {

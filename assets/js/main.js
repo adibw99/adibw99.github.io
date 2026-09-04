@@ -225,13 +225,25 @@ const updateMusicButton = (playing) => {
 }
 
 const selectTrack = (trackIndex) => {
+    const wasPlaying = musicPlaying
+
+    audioPlayer.pause()
+    if (currentTrackIndex < 0 && musicPlaying) stopAmbientMusic()
+
     currentTrackIndex = trackIndex
     audioPlayer.src = playlist[trackIndex].url
     musicTitle.textContent = playlist[trackIndex].name
-    musicStatus.textContent = 'Ready'
     document.querySelectorAll('.music-track').forEach((track, index) => {
         track.classList.toggle('active-track', index === trackIndex)
     })
+
+    if (wasPlaying) {
+        audioPlayer.play()
+        updateMusicButton(true)
+    } else {
+        updateMusicButton(false)
+        musicStatus.textContent = 'Ready'
+    }
 }
 
 const renderPlaylist = () => {

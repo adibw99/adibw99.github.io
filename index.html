@@ -158,7 +158,7 @@
               <div class="about__box">
                 <i class="bx bx-briefcase-alt about__icon"></i>
                 <h3 class="about__title">Work Experience</h3>
-                <span class="about__subtitle">1 Company</span>
+                <span class="about__subtitle">3 Company</span>
               </div>
             </div>
             <p class="about__description">I work at the Directorate General of Customs and Excise, with advanced skills in Laravel, Python, and Artificial Intelligence (AI).</p>
@@ -417,12 +417,31 @@
                 <p class="experience__modal-description">Undip TV · Intern Project<br /></p>
                 <p class="text" style="text-align: center">Mar 2021 - May 2021 (3 Month)</p>
                 <p class="text" style="text-align: center">Jun 2022 - Jul 2022 (1 month)</p>
-                <p class="experience__modal-description">DJBC</p>
+                <ul class="experience__modal-list">
+                  <li class="experience__modal-item">
+                    <i class="bx bx-check experience__modal-icon"></i>
+                    <p class="experience__modal-info">Created a news website for the Diponegoro University news media using Laravel 8, MySQL, and Bootstrap (Full-Stack Developer).</p>
+                  </li>
+                </ul>
+                <p class="experience__modal-description">PT Kalijaga Mandiri Sejahtera</p>
+                <p class="text" style="text-align: center">2023 - 2025</p>
+                <p class="text" style="text-align: center">PJT for Importing Goods for Indonesian Migrant Workers (PMI)</p>
+                <ul class="experience__modal-list">
+                  <li class="experience__modal-item">
+                    <i class="bx bx-check experience__modal-icon"></i>
+                    <p class="experience__modal-info">Built a desktop manifest tool to simplify manual processes and make them semi-automated.</p>
+                  </li>
+                  <li class="experience__modal-item">
+                    <i class="bx bx-check experience__modal-icon"></i>
+                    <p class="experience__modal-info">Created a company landing page for <a href="https://cargoptkms.com" target="_blank" rel="noopener noreferrer">cargoptkms.com</a>.</p>
+                  </li>
+                </ul>
+                <p class="experience__modal-description">Direktorat Jenderal Bea dan Cukai</p>
                 <p class="text" style="text-align: center">2025 - Present</p>
                 <ul class="experience__modal-list">
                   <li class="experience__modal-item">
                     <i class="bx bx-check experience__modal-icon"></i>
-                    <p class="experience__modal-info">Create News Website for News Media in Diponegoro Univrsity Using Laravel 8, MySql, and Bootstrap (FullStack Developer)</p>
+                    <p class="experience__modal-info">Developed the Portal Bea Cukai Kualanamu to simplify services for users at Bea Cukai Kualanamu.</p>
                   </li>
                 </ul>
               </div>
@@ -471,6 +490,7 @@
           <span class="work__item" data-filter=".game">Game</span>
           <span class="work__item" data-filter=".bot">Bot</span>
           <span class="work__item" data-filter=".iot">IoT</span>
+          <span class="work__item" data-filter=".desktop-app">Desktop App</span>
         </div>
 
         <div class="work__container container grid">
@@ -503,8 +523,26 @@
           <div class="work__card mix web">
             <img src="assets/img/Project11.png" alt="Portal BC Kuala Namu website" class="work__img" />
             <h3 class="work__title">Portal BC Kuala Namu</h3>
-            <span class="work__subtitle">Website portal informasi Bea Cukai Kuala Namu</span>
+            <span class="work__subtitle">Website portal information and service in Bea Cukai Kuala Namu</span>
             <a href="https://portal.bckno.site" target="_blank" rel="noopener noreferrer" class="work__button"> Website <i class="bx bx-right-arrow-alt work__icon"></i> </a>
+          </div>
+          <div class="work__card mix web">
+            <img src="assets/img/Project14.png" alt="Portfolio website for PT Kalijaga Mandiri Sejahtera" class="work__img" />
+            <h3 class="work__title">PT Kalijaga Mandiri Sejahtera Portfolio</h3>
+            <span class="work__subtitle">Portfolio website for PT Kalijaga Mandiri Sejahtera</span>
+            <a href="https://cargoptkms.com" target="_blank" rel="noopener noreferrer" class="work__button"> Website <i class="bx bx-right-arrow-alt work__icon"></i> </a>
+          </div>
+          <div class="work__card mix desktop-app">
+            <img src="assets/img/Project12.png" alt="Customs Data Cleansing Tool" class="work__img" />
+            <h3 class="work__title">Customs Data Cleansing Tool</h3>
+            <span class="work__subtitle">Desktop application for cleansing Customs data</span>
+            <a href="#" class="work__button"> Details <i class="bx bx-right-arrow-alt work__icon"></i> </a>
+          </div>
+          <div class="work__card mix desktop-app">
+            <img src="assets/img/Project13.png" alt="Import Manifest Processing Tool" class="work__img" />
+            <h3 class="work__title">Import Manifest Processing Tool</h3>
+            <span class="work__subtitle">Desktop application for processing large volumes of import manifest submissions from multiple BL hosts</span>
+            <a href="#" class="work__button"> Details <i class="bx bx-right-arrow-alt work__icon"></i> </a>
           </div>
           <div class="work__card mix bot">
             <img src="assets/img/Project5.png" alt="" class="work__img" />
@@ -564,6 +602,15 @@
           </div>
         </div>
       </section>
+
+      <div class="image-modal" id="image-modal" role="dialog" aria-modal="true" aria-label="Portfolio image preview" aria-hidden="true">
+        <div class="image-modal__content">
+          <button type="button" class="image-modal__close" id="image-modal-close" aria-label="Close image preview" title="Close image preview">
+            <i class="bx bx-x"></i>
+          </button>
+          <img class="image-modal__image" id="image-modal-image" src="" alt="" />
+        </div>
+      </div>
 
       <!--=============== CONTACT ===============-->
       <section class="contact section" id="contact">
@@ -628,7 +675,7 @@
           </li>
         </ul>
         <ul class="footer__social">
-          <a href="https://web.facebook.com/adibarenx" target="_blank" class="footer__social-link">
+          <a href="https://web.facebook.com/adibwarenx" target="_blank" class="footer__social-link">
             <i class="bx bxl-facebook"></i>
           </a>
           <a href="https://www.instagram.com/adibbw/" target="_blank" class="footer__social-link">

@@ -49,6 +49,47 @@ function activeWork(){
 
 linkWork.forEach(l=> l.addEventListener('click', activeWork))
 
+/*=============== PORTFOLIO IMAGE MODAL ===============*/
+const portfolioImages = document.querySelectorAll('.work__img')
+const imageModal = document.getElementById('image-modal')
+const imageModalImage = document.getElementById('image-modal-image')
+const imageModalClose = document.getElementById('image-modal-close')
+
+const closeImageModal = () => {
+    imageModal.classList.remove('active-image-modal')
+    imageModal.setAttribute('aria-hidden', 'true')
+    imageModalImage.src = ''
+}
+
+portfolioImages.forEach((image) => {
+    image.setAttribute('tabindex', '0')
+    image.setAttribute('role', 'button')
+    image.setAttribute('aria-label', 'Open portfolio image')
+
+    const openImageModal = () => {
+        imageModalImage.src = image.src
+        imageModalImage.alt = image.alt || 'Portfolio image preview'
+        imageModal.classList.add('active-image-modal')
+        imageModal.setAttribute('aria-hidden', 'false')
+    }
+
+    image.addEventListener('click', openImageModal)
+    image.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault()
+            openImageModal()
+        }
+    })
+})
+
+imageModalClose.addEventListener('click', closeImageModal)
+imageModal.addEventListener('click', (event) => {
+    if (event.target === imageModal) closeImageModal()
+})
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && imageModal.classList.contains('active-image-modal')) closeImageModal()
+})
+
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')

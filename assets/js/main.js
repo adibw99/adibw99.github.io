@@ -210,8 +210,17 @@ const startAmbientMusic = () => {
 
 const stopAmbientMusic = () => {
     clearInterval(musicTimer)
-    musicOscillators.forEach((oscillator) => oscillator.stop())
-    audioContext.close()
+    musicOscillators?.forEach((oscillator) => oscillator.stop())
+    audioContext?.close()
+    musicTimer = null
+    musicOscillators = null
+    audioContext = null
+}
+
+const stopCurrentPlayback = () => {
+    audioPlayer.pause()
+    audioPlayer.currentTime = 0
+    if (audioContext) stopAmbientMusic()
 }
 
 const updateMusicButton = (playing) => {
@@ -227,8 +236,7 @@ const updateMusicButton = (playing) => {
 const selectTrack = (trackIndex) => {
     const wasPlaying = musicPlaying
 
-    audioPlayer.pause()
-    if (currentTrackIndex < 0 && musicPlaying) stopAmbientMusic()
+    stopCurrentPlayback()
 
     currentTrackIndex = trackIndex
     audioPlayer.src = playlist[trackIndex].url
@@ -273,8 +281,7 @@ loadMusicManifest().catch(() => {
 
 musicButton.addEventListener('click', () => {
     if (musicPlaying) {
-        if (currentTrackIndex >= 0) audioPlayer.pause()
-        else stopAmbientMusic()
+        stopCurrentPlayback()
         updateMusicButton(false)
         return
     }
@@ -301,8 +308,7 @@ musicNext.addEventListener('click', () => {
 })
 
 musicStop.addEventListener('click', () => {
-    if (currentTrackIndex >= 0) audioPlayer.pause()
-    else if (musicPlaying) stopAmbientMusic()
+    stopCurrentPlayback()
     updateMusicButton(false)
     musicStatus.textContent = 'Stopped'
 })
@@ -310,7 +316,6 @@ musicStop.addEventListener('click', () => {
 audioPlayer.addEventListener('ended', () => {
     if (currentTrackIndex < playlist.length - 1) {
         selectTrack(currentTrackIndex + 1)
-        audioPlayer.play()
     } else {
         updateMusicButton(false)
     }

@@ -216,6 +216,7 @@ const musicPlay = document.getElementById('music-play')
 const musicPrevious = document.getElementById('music-previous')
 const musicNext = document.getElementById('music-next')
 const musicStop = document.getElementById('music-stop')
+const musicMinimize = document.getElementById('music-minimize')
 const audioPlayer = new Audio()
 let audioContext
 let musicGain
@@ -274,6 +275,14 @@ const updateMusicButton = (playing) => {
     musicInfo.classList.toggle('is-visible', playing)
 }
 
+musicMinimize.addEventListener('click', () => {
+    const isMinimized = musicInfo.classList.toggle('is-minimized')
+    musicMinimize.setAttribute('aria-expanded', `${!isMinimized}`)
+    musicMinimize.setAttribute('aria-label', `${isMinimized ? 'Expand' : 'Minimize'} music panel`)
+    musicMinimize.setAttribute('title', `${isMinimized ? 'Expand' : 'Minimize'} music panel`)
+    musicMinimize.innerHTML = `<i class="bx bx-chevron-${isMinimized ? 'down' : 'up'}"></i>`
+})
+
 const selectTrack = (trackIndex) => {
     const wasPlaying = musicPlaying
 
@@ -314,6 +323,7 @@ const loadMusicManifest = async () => {
     bundledTracks = await response.json()
     playlist = [...bundledTracks]
     renderPlaylist()
+    if (playlist.length > 0) selectTrack(0)
 }
 
 loadMusicManifest().catch(() => {

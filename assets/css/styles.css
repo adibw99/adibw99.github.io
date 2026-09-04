@@ -238,7 +238,7 @@ img {
   left: 1rem;
   z-index: var(--z-tooltip);
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 0.45rem;
   width: 240px;
@@ -258,6 +258,20 @@ img {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-50%);
+}
+
+.music-info.is-minimized {
+  width: 190px;
+  top: auto;
+  left: 50%;
+  bottom: calc(2rem + 3.75rem);
+  transform: translateX(-50%);
+}
+
+.music-info.is-minimized .music-controls,
+.music-info.is-minimized .music-divider,
+.music-info.is-minimized .music-library {
+  display: none;
 }
 
 .music-info__icon {
@@ -294,6 +308,24 @@ img {
   gap: 2px;
   height: 1.4rem;
   margin-left: auto;
+}
+
+.music-minimize {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  color: var(--text-color-light);
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.music-minimize:hover,
+.music-minimize:focus-visible {
+  color: var(--first-color);
+  background-color: hsla(var(--first-hue), var(--sat), var(--lig), 0.14);
 }
 
 .music-visualizer span {
@@ -370,6 +402,10 @@ img {
 
 .music-info.is-visible .music-library.has-tracks {
   display: grid;
+}
+
+.music-info.is-visible.is-minimized .music-library.has-tracks {
+  display: none;
 }
 
 .music-divider {
@@ -1411,6 +1447,10 @@ body.light-theme {
 @media screen and (max-width: 991px) {
   .nav__menu {
     bottom: 4rem;
+  }
+
+  .music-info.is-minimized {
+    bottom: calc(4rem + 3.75rem);
   }
 
   .change-theme,
